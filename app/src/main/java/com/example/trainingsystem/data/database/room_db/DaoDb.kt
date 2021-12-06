@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.trainingsystem.data.database.model.CandidatInfoDbModel
 import com.example.trainingsystem.data.database.model.NewsInfoDbModel
+import com.example.trainingsystem.data.database.model.TeamsResultInfoDbModel
 import com.example.trainingsystem.data.database.model.WorldCupInfoDbModel
 
 @Dao
@@ -29,6 +30,12 @@ interface DaoDb {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCandidatesList(candidates: List<CandidatInfoDbModel>)
+
+    @Query("SELECT * FROM result_list")
+    fun getTeamsResultInfoList(): LiveData<List<TeamsResultInfoDbModel>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTeamsResultList(results: List<TeamsResultInfoDbModel>)
 
 
 }

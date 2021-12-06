@@ -6,11 +6,13 @@ import androidx.lifecycle.Transformations
 import com.example.trainingsystem.data.database.room_db.AppDatabase
 import com.example.trainingsystem.data.mapper.CandidatMapper
 import com.example.trainingsystem.data.mapper.NewsMapper
+import com.example.trainingsystem.data.mapper.ResultMapper
 import com.example.trainingsystem.data.mapper.WorldCupMapper
 import com.example.trainingsystem.data.network.ApiFactory
 import com.example.trainingsystem.domain.Repository
 import com.example.trainingsystem.domain.pojo.CandidatInfo
 import com.example.trainingsystem.domain.pojo.NewsInfo
+import com.example.trainingsystem.domain.pojo.TeamsResultInfo
 import com.example.trainingsystem.domain.pojo.WorldCupInfo
 
 class RepositoryImpl(private val application: Application) : Repository {
@@ -20,6 +22,13 @@ class RepositoryImpl(private val application: Application) : Repository {
     private val newsMapper = NewsMapper()
     private val worldCupMapper = WorldCupMapper()
     private val candidatMapper = CandidatMapper()
+    private val resultMapper = ResultMapper()
+
+    override fun getTeamsResultInfoList(): LiveData<List<TeamsResultInfo>> {
+        return Transformations.map(dao.getTeamsResultInfoList()) {
+            it.map { resultMapper.mapDbModelToEntity(it) }
+        }
+    }
 
     override fun getNewsInfoList(): LiveData<List<NewsInfo>> {
         return Transformations.map(dao.getNewsInfoList()) {
@@ -62,6 +71,15 @@ class RepositoryImpl(private val application: Application) : Repository {
             val newsInfoDto = apiService.loadNewsList()
             val newsDbModel = newsInfoDto.map { newsMapper.mapDtoToDbModel(it) }
             dao.insertNewsList(newsDbModel)
+        } catch (e: Exception) {
+        }
+    }
+
+    override suspend fun loadTeamsResultData() {
+        try {
+            val dto = apiService.loadTeamsResultList()
+            val dbModel = dto.map { resultMapper.mapDtoToDbModel(it) }
+            dao.insertTeamsResultList(dbModel)
         } catch (e: Exception) {
         }
     }

@@ -2,13 +2,13 @@ package com.example.trainingsystem.domain.pojo
 
 
 data class TeamsResultInfo(
-    private val type: String? = null,
+    val type: String,
 
-    private val condition: String? = null,
+    val condition: String,
 
-    private val date: String? = null,
+    val date: String,
 
-    private val stage: String? = null,
+    val stage: String,
 
-    private val teams: List<TeamInfo>? = null
+    val teams: List<TeamInfo>
 )

@@ -3,18 +3,18 @@ package com.example.trainingsystem.domain.pojo
 
 data class TeamInfo(
 
-    val name: String? = null,
+    val name: String,
 
-    val image: String? = null,
+    val image: String,
 
-    val lag: String? = null,
+    val lag: String,
 
-    val result: String? = null,
+    val result: String,
 
-    val comments: String? = null,
+    val comments: String,
 
     val scores: Int = 0,
 
-    val players: List<PlayerInfo>? = null
+    val players: List<PlayerInfo>
 
 )

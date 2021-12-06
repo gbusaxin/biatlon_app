@@ -58,12 +58,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewResultCondition" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewTeamsResult"
         android:layout_width="30dp"
         android:layout_height="20dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@+id/textViewResultStage"
+        app:layout_constraintStart_toStartOf="@+id/textViewResultStage"
         app:layout_constraintTop_toBottomOf="@+id/textViewResultStage"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
@@ -76,9 +76,9 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewTeamsResult"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTeamsResult"
+        app:layout_constraintTop_toTopOf="@+id/imageViewTeamsResult" />
 
     <TextView
         android:id="@+id/textView16"
@@ -88,8 +88,8 @@
         android:text="Отставание"
         android:textSize="12sp"        android:textStyle="bold|italic"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewTeamsResult"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTeamsResult" />
 
     <TextView
         android:id="@+id/textView17"

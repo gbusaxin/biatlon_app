@@ -6,6 +6,7 @@ import com.example.trainingsystem.databinding.ActivityMainBinding
 import com.example.trainingsystem.presentation.adapters.ViewPagerAdapter
 import com.example.trainingsystem.presentation.fragments.CandidatesFragment
 import com.example.trainingsystem.presentation.fragments.NewsFragment
+import com.example.trainingsystem.presentation.fragments.ResultsFragment
 import com.example.trainingsystem.presentation.fragments.WorldCupFragment
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var newsFragment : NewsFragment
     lateinit var worldCupFragment: WorldCupFragment
     lateinit var candidatesFragment: CandidatesFragment
+    lateinit var resultsFragment:ResultsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         newsFragment = NewsFragment()
         worldCupFragment = WorldCupFragment()
         candidatesFragment = CandidatesFragment()
+        resultsFragment = ResultsFragment()
 
         val support = supportFragmentManager
         adapter = ViewPagerAdapter(support)
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         adapter.addFragment(newsFragment,"НОВОСТИ")
         adapter.addFragment(worldCupFragment,"World Cup")
         adapter.addFragment(candidatesFragment,"Кандидаты")
+        adapter.addFragment(resultsFragment,"Результаты")
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
 

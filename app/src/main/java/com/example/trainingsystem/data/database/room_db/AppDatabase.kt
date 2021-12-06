@@ -6,13 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.trainingsystem.data.database.model.CandidatInfoDbModel
 import com.example.trainingsystem.data.database.model.NewsInfoDbModel
+import com.example.trainingsystem.data.database.model.TeamsResultInfoDbModel
 import com.example.trainingsystem.data.database.model.WorldCupInfoDbModel
 
 @Database(
     entities = [NewsInfoDbModel::class,
         WorldCupInfoDbModel::class,
-        CandidatInfoDbModel::class],
-    version = 3,
+        CandidatInfoDbModel::class,
+        TeamsResultInfoDbModel::class],
+    version = 4,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
