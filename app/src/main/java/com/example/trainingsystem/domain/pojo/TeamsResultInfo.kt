@@ -2,6 +2,7 @@ package com.example.trainingsystem.domain.pojo
 
 
 data class TeamsResultInfo(
+
     val type: String,
 
     val condition: String,
@@ -11,4 +12,8 @@ data class TeamsResultInfo(
     val stage: String,
 
     val teams: List<TeamInfo>
-)
+): ResultUtils {
+    override fun whatIs(): Int {
+        return 1
+    }
+}

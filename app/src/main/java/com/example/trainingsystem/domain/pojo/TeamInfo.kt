@@ -17,4 +17,8 @@ data class TeamInfo(
 
     val players: List<PlayerInfo>
 
-)
+) : ResultUtils {
+    override fun whatIs(): Int {
+        return 2
+    }
+}
