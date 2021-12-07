@@ -49,11 +49,6 @@ class TeamsResultAdapter : RecyclerView.Adapter<SealedResultViewHolder>() {
     override fun getItemCount() = list.size
 
     override fun getItemViewType(position: Int): Int {
-//        return when(list[position]){
-//            is SealedResultsInfo.Coutry -> R.layout.item_result_country
-//            is SealedResultsInfo.Result -> R.layout.item_result
-//            is SealedResultsInfo.Team -> R.layout.item_player
-//        }
         return when (list[position].whatIs()) {
             1 -> R.layout.item_result
             2 -> R.layout.item_result_country
