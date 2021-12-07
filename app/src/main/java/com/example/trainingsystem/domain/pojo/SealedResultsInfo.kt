@@ -2,6 +2,8 @@ package com.example.trainingsystem.domain.pojo
 
 sealed class SealedResultsInfo{
 
+    //fun mapEntityToSealed(entity:)
+
     class Result(
         val type: String,
 
